@@ -8,6 +8,8 @@ import SEO from "../components/seo"
 
 const SecondPage:FunctionComponent = (props: PageProps) => {
   const [datas, setDatas] = useState([]);
+  const [userId, setUserId] = useState("");
+
   useEffect(() => {
     axios.get(`http://qiita.com/api/v2/items`)
       .then(res => {
@@ -18,11 +20,26 @@ const SecondPage:FunctionComponent = (props: PageProps) => {
       });
   }, [])
 
+  function changeUserId(event) {
+    setUserId(event.target.value)
+  }
+
+  function sendRequest(event) {
+    console.log(userId);
+    event.preventDefault;
+  }
+
   return <Layout>
     <SEO title="Page two" />
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2 ({props.path})</p>
     <Link to="/">Go back to the homepage</Link>
+    <form onSubmit={sendRequest}>
+      <label>
+        UserID: <input type="text" value={userId} onChange={changeUserId} />
+      </label>
+      <input type="submit" value="SUBMIT" />
+    </form>
     {datas.map((data) => (
         <div key={data.id}>
           <h3>{data.title}</h3>
