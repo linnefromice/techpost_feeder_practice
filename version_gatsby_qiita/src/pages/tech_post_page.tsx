@@ -2,7 +2,7 @@
 import React, { FunctionComponent, useState, useEffect } from "react"
 import { PageProps, Link } from "gatsby"
 import axios from "axios";
-import { Card, CardActions, CardContent, Button } from '@material-ui/core';
+import { Card, CardActions, CardContent, Button, Grid } from '@material-ui/core';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -55,7 +55,9 @@ const TechPostPage:FunctionComponent = (props: PageProps) => {
       <button onClick={sendRequest}>REQUEST</button>
     </div>
 
+    <Grid container spacing={3}>
     {datas.map((data) => (
+      <Grid item xs={6}>
         <Card key={data.id} style={{ padding: `10.0px`, margin: `10.0px` }}>
           <CardContent>
             <h3>{data.title}</h3>
@@ -65,7 +67,9 @@ const TechPostPage:FunctionComponent = (props: PageProps) => {
             <a href={data.url}><Button size="small">LINK</Button></a>
           </CardActions>
         </Card>
+      </Grid>
      ))}
+    </Grid>
   </Layout>
 }
 
