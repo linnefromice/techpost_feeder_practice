@@ -2,6 +2,7 @@
 import React, { FunctionComponent, useState, useEffect } from "react"
 import { PageProps, Link } from "gatsby"
 import axios from "axios";
+import { Card, CardActions, CardContent, Button } from '@material-ui/core';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -55,12 +56,15 @@ const TechPostPage:FunctionComponent = (props: PageProps) => {
     </div>
 
     {datas.map((data) => (
-        <div key={data.id}>
-          <h3>{data.title}</h3>
-          <p>{data.user.name}</p>
-          <p>{data.created_at}</p>
-          <a href={data.url}>LINK</a>
-        </div>
+        <Card key={data.id} style={{ padding: `10.0px`, margin: `10.0px` }}>
+          <CardContent>
+            <h3>{data.title}</h3>
+            <p>{data.user.name} / {data.created_at}</p>
+          </CardContent>
+          <CardActions>
+            <a href={data.url}><Button size="small">LINK</Button></a>
+          </CardActions>
+        </Card>
      ))}
   </Layout>
 }
