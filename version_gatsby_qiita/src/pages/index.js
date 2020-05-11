@@ -37,9 +37,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <h1>Hi people</h1>
       <p>{site.siteMetadata.description}</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
+      <h1>Blog Post Page</h1>
       {allMarkdownRemark.nodes.map((node) => (
         <div key={node.id}>
           <h3>{node.frontmatter.title}</h3>
@@ -48,7 +46,7 @@ const IndexPage = () => {
           <div dangerouslySetInnerHTML={{ __html: node.html}} />
         </div>
       ))}
-      <Link to="/page-2/">Go to page 2</Link>
+      <Link to="/tech_post_page/">Go to Tech Post Page</Link>
     </Layout>
   );
 }

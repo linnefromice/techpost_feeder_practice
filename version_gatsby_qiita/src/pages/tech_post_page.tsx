@@ -6,7 +6,7 @@ import axios from "axios";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const SecondPage:FunctionComponent = (props: PageProps) => {
+const TechPostPage:FunctionComponent = (props: PageProps) => {
   const [datas, setDatas] = useState([]);
   const [userId, setUserId] = useState("");
 
@@ -45,8 +45,8 @@ const SecondPage:FunctionComponent = (props: PageProps) => {
 
   return <Layout>
     <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2 ({props.path})</p>
+    <h1>Hi from the Tech Post Page</h1>
+    <p>Welcome to Tech Post Page ({props.path})</p>
     <Link to="/">Go back to the homepage</Link>
     
     <div>
@@ -65,11 +65,4 @@ const SecondPage:FunctionComponent = (props: PageProps) => {
   </Layout>
 }
 
-/*
-const userId = 'ko2ic';
-axios.get(`http://qiita.com/api/v2/users/${userId}/items`)
-  .then(res => console.log(res))
-  .catch(res => console.log(res));
-*/
-
-export default SecondPage
+export default TechPostPage
