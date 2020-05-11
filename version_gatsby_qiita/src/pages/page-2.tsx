@@ -25,7 +25,21 @@ const SecondPage:FunctionComponent = (props: PageProps) => {
   }
 
   function sendRequest(event) {
-    console.log(userId);
+    let url = `http://qiita.com/api/v2`;
+    if (userId == "" || userId == null) {
+      url += `/items`;
+    } else {
+      url += `/users/${userId}/items`
+    }
+    console.log(url);
+    axios.get(url)
+      .then(res => {
+        setDatas(res.data);
+      })
+      .catch(res => {
+        console.log(res);
+      });
+
     event.preventDefault;
   }
 
@@ -34,12 +48,12 @@ const SecondPage:FunctionComponent = (props: PageProps) => {
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2 ({props.path})</p>
     <Link to="/">Go back to the homepage</Link>
-    <form onSubmit={sendRequest}>
-      <label>
-        UserID: <input type="text" value={userId} onChange={changeUserId} />
-      </label>
-      <input type="submit" value="SUBMIT" />
-    </form>
+    
+    <div>
+      UserID: <input type="text" value={userId} onChange={changeUserId} />
+      <button onClick={sendRequest}>REQUEST</button>
+    </div>
+
     {datas.map((data) => (
         <div key={data.id}>
           <h3>{data.title}</h3>
