@@ -13,6 +13,7 @@ import {
   Input,
   InputAdornment
 } from '@material-ui/core';
+import { AccountCircle } from '@material-ui/icons';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -66,7 +67,7 @@ const TechPostPage:FunctionComponent = (props: PageProps) => {
             id="user-id-text-field"
             startAdornment={
               <InputAdornment position="start">
-                <span>User</span>
+                <AccountCircle />
               </InputAdornment>
             }
             value={userId}
