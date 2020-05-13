@@ -2,7 +2,7 @@
 import React, { FunctionComponent, useState, useEffect } from "react"
 import { PageProps, Link } from "gatsby"
 import axios from "axios";
-import { 
+import {
   Card,
   CardActions,
   CardContent,
@@ -11,9 +11,13 @@ import {
   FormControl,
   InputLabel,
   Input,
-  InputAdornment
+  InputAdornment,
+  IconButton
 } from '@material-ui/core';
-import { AccountCircle } from '@material-ui/icons';
+import {
+  AccountCircle,
+  Search
+} from '@material-ui/icons';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -74,9 +78,9 @@ const TechPostPage:FunctionComponent = (props: PageProps) => {
             onChange={changeUserId}
           />
         </FormControl>
-      </div>
-      <div>
-        <button onClick={sendRequest}>REQUEST</button>
+        <IconButton onClick={sendRequest}>
+          <Search/>
+        </IconButton>
       </div>
     </div>
 
