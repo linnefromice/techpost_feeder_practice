@@ -2,8 +2,17 @@
 import React, { FunctionComponent, useState, useEffect } from "react"
 import { PageProps, Link } from "gatsby"
 import axios from "axios";
-import { Card, CardActions, CardContent, Button, Grid } from '@material-ui/core';
-
+import { 
+  Card,
+  CardActions,
+  CardContent,
+  Button,
+  Grid,
+  FormControl,
+  InputLabel,
+  Input,
+  InputAdornment
+} from '@material-ui/core';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -50,8 +59,24 @@ const TechPostPage:FunctionComponent = (props: PageProps) => {
     <Link to="/">Go back to the homepage</Link>
     
     <div>
-      UserID: <input type="text" value={userId} onChange={changeUserId} />
-      <button onClick={sendRequest}>REQUEST</button>
+      <div>
+        <FormControl>
+          <InputLabel htmlFor="input-with-icon-adornment">UserId</InputLabel>
+          <Input
+            id="user-id-text-field"
+            startAdornment={
+              <InputAdornment position="start">
+                <span>User</span>
+              </InputAdornment>
+            }
+            value={userId}
+            onChange={changeUserId}
+          />
+        </FormControl>
+      </div>
+      <div>
+        <button onClick={sendRequest}>REQUEST</button>
+      </div>
     </div>
 
     <Grid container spacing={3}>

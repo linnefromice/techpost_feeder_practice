@@ -37,6 +37,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <h1>Welcome to Blog Post Page</h1>
       <p>{site.siteMetadata.description}</p>
+      <Link to="/tech_post_page/">Go to Tech Post Page</Link>
       <Grid container spacing={3}>
       {allMarkdownRemark.nodes.map((node) => (
         <Grid item xs={6}>
@@ -54,7 +55,6 @@ const IndexPage = () => {
         </Grid>
       ))}
       </Grid>
-      <Link to="/tech_post_page/">Go to Tech Post Page</Link>
     </Layout>
   );
 }
