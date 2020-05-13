@@ -45,9 +45,8 @@ const TechPostPage:FunctionComponent = (props: PageProps) => {
   }
 
   return <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the Tech Post Page</h1>
-    <p>Welcome to Tech Post Page ({props.path})</p>
+    <SEO title="Tech Post Page" />
+    <h1>Welcome to Tech Post Page ({props.path})</h1>
     <Link to="/">Go back to the homepage</Link>
     
     <div>

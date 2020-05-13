@@ -35,9 +35,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Hi people</h1>
+      <h1>Welcome to Blog Post Page</h1>
       <p>{site.siteMetadata.description}</p>
-      <h1>Blog Post Page</h1>
       <Grid container spacing={3}>
       {allMarkdownRemark.nodes.map((node) => (
         <Grid item xs={6}>
